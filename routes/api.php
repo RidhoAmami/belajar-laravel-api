@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::post('/login', [LoginController::class, 'login']);
 
-Route::apiResource('/users',UserController::class);
-
-
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('/users', UserController::class);
+});

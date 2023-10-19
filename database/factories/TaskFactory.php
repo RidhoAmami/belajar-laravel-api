@@ -20,7 +20,7 @@ class TaskFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
-            'user_id' => User::query()->inRandomOrder()->first()->id
+            'user_id' => User::query()->inRandomOrder()->first()->id,
         ];
     }
 }

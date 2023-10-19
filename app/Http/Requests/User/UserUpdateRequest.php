@@ -22,10 +22,10 @@ class UserUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required',
-            'email'=> 'required|email|unique:users,email,' .$this->user->id .',id',
-            'password'=>'required|string',
-            'is_admin' =>'required|boolean',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$this->user->id.',id',
+            'password' => 'required|string',
+            'is_admin' => 'required|boolean',
         ];
     }
 }

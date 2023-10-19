@@ -15,13 +15,14 @@ return new class extends Migration
             $table->boolean('is_admin')->default(false);
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn("is_admin");
+            $table->dropColumn('is_admin');
         });
     }
 };
