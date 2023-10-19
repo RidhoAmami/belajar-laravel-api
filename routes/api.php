@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\Auth\LoginController;
+use App\Http\Controllers\API\TaskController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::middleware('auth:api')->group(function () {
+Route::middleware(['auth:api', 'admin'])->group(function () {
     Route::apiResource('/users', UserController::class);
+    Route::apiResource('/tasks', TaskController::class);
 });
