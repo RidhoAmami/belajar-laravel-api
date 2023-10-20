@@ -80,9 +80,9 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Task $task)
     {
-        $user->delete();
+        $task->delete();
 
         return response()->json([], Response::HTTP_NO_CONTENT);
     }

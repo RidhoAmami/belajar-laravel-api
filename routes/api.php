@@ -21,3 +21,7 @@ Route::middleware(['auth:api', 'admin'])->group(function () {
     Route::apiResource('/users', UserController::class);
     Route::apiResource('/tasks', TaskController::class);
 });
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::post('/logout', [LogoutController::class, 'logout']);
